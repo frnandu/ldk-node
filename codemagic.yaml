@@ -9,7 +9,8 @@ workflows:
           source $HOME/.cargo/env
           pwd
           cargo install uniffi-bindgen-go --git https://github.com/NordSecurity/uniffi-bindgen-go --tag v0.2.1+v0.25.0
-          ./scripts/uniffi_bindgen_generate_go.sh
+          uniffi-bindgen-go src/ldk_node.udl -o ffi/golang -c ./uniffi.toml
+          cargo build --release
           cp ./target/release/libldk_node_bindings.dylib ffi/golang/ldk_node
     artifacts:
-      - clone/ffi/golang/ldk_node/*
+      - ffi/golang/ldk_node/*
