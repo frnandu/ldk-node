@@ -12,7 +12,7 @@ workflows:
           source $HOME/.cargo/env
       - name: Build Rust Project
         script: |
-          cd path/to/your/project
-          cargo build --release
-    artifacts:
-      - path/to/your/project/target/release/*
+          scripts/uniffi_bindgen_generate_go.sh
+#          cargo build --release
+#    artifacts:
+#      - path/to/your/project/target/release/*
