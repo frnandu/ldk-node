@@ -2,9 +2,6 @@ workflows:
   rust-build:
     name: Rust Build
     instance_type: mac_mini_m1 # or another suitable instance type
-    environment:
-      vars:
-        # Define environment variables if needed
     scripts:
       - name: Install Rust
         script: |
