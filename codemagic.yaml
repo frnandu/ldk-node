@@ -7,8 +7,7 @@ workflows:
         script: |
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
           source $HOME/.cargo/env
-      - name: Build Rust Project
-        script: |
+          pwd
           cargo install uniffi-bindgen-go --git https://github.com/NordSecurity/uniffi-bindgen-go --tag v0.2.1+v0.25.0
           /clone/scripts/uniffi_bindgen_generate_go.sh
           cp ./target/release/libldk_node_bindings.dylib ffi/golang/ldk_node
