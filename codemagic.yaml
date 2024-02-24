@@ -9,7 +9,8 @@ workflows:
           source $HOME/.cargo/env
       - name: Build Rust Project
         script: |
-          scripts/uniffi_bindgen_generate_go.sh
+          cargo install uniffi-bindgen-go --git https://github.com/NordSecurity/uniffi-bindgen-go --tag v0.2.1+v0.25.0
+          /clone/scripts/uniffi_bindgen_generate_go.sh
 #          cargo build --release
 #    artifacts:
 #      - path/to/your/project/target/release/*
