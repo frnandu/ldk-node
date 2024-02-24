@@ -1,5 +1,18 @@
 workflows:
-  hello-world:
-    name: Hello world workflow
+  rust-build:
+    name: Rust Build
+    instance_type: mac_mini_m1 # or another suitable instance type
+    environment:
+      vars:
+        # Define environment variables if needed
     scripts:
-        - echo "Hello World!"
+      - name: Install Rust
+        script: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          source $HOME/.cargo/env
+      - name: Build Rust Project
+        script: |
+          cd path/to/your/project
+          cargo build --release
+    artifacts:
+      - path/to/your/project/target/release/*
